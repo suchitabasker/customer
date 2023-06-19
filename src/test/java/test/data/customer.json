@@ -1,0 +1,15 @@
+{
+    "id": 1,
+    "username": "basker1",
+    "password": "password",
+    "firstname": "Basker1",
+    "lastname": "Lastname1",
+    "addresses": {
+        "id": 1,
+        "address1": "Mumbai",
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null
+    }
+}

@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RestController
-@Slf4j
+@RequestMapping("/product")
 public class ProductController {
 
 	@Autowired
@@ -26,18 +25,18 @@ public class ProductController {
 		this.productService = productService;
 	}
 
-	@GetMapping("/product")
+	@GetMapping("")
 	public ResponseEntity<List<Product>> getAll() {
 		return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
 	}
 
-	@GetMapping("/product/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Product> get(@PathVariable Integer id) {
 		System.out.println("Calling with vale " + id);
 		return new ResponseEntity<>(productService.get(id), HttpStatus.OK);
 	}
 	
-	@PostMapping("/product/add")
+	@PostMapping("/add")
 	public ResponseEntity<Product> add(@RequestBody Product product) {
 		System.out.println("Added " + product.toString());
 		return new ResponseEntity<>(productService.add(product) , HttpStatus.OK);

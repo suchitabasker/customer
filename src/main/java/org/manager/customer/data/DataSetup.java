@@ -37,6 +37,8 @@ public class DataSetup implements CommandLineRunner {
 		CustomerEntity customerEntity = new CustomerEntity();
     	customerEntity.setFirstname("Basker");
     	customerEntity.setLastname("Nadar");
+    	customerEntity.setUsername("basker");
+    	customerEntity.setPassword("password");
 
     	AddressEntity addressEntity = new AddressEntity();
     	addressEntity.setAddress1("Mumbai");

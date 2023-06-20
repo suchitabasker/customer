@@ -36,9 +36,7 @@ public class SecurityController {
 	
 	@PostMapping("/authenticate")
 	public ResponseEntity<AuthenticationResponse> getNewSessionToken(@RequestBody AuthenticationRequest request) {
-		System.out.println("Start " + request.getUsername());
 		authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
-		System.out.println("Start 1");
 		UserDetails userDetails = detailService.loadUserByUsername(request.getUsername());
 		String token = javaWebTokenService.getToken(userDetails.getUsername());
 		AuthenticationResponse res = new AuthenticationResponse(token);

@@ -18,6 +18,12 @@ public class JavaWebTokenService {
 
 	private String KEY = "secreats";
 
+	/**
+	 * Create a new token based on username and returns.
+	 * 
+	 * @param username
+	 * @return
+	 */
 	public String getToken(final String username) {
 		return createToken(new HashMap<String, Object>(), username);
 	}
@@ -67,14 +73,5 @@ public class JavaWebTokenService {
 	private Boolean isTokenExpired(String token) {
 		final Date expiration = getExpirationDateFromToken(token);
 		return expiration.before(new Date());
-	}
-
-	public static void main(String[] args) {
-		System.out.println("Calling");
-
-		String token = new JavaWebTokenService().getToken("suchita");
-
-		System.out.println(new JavaWebTokenService().isTokenValid(token));
-		System.out.println(token);
 	}
 }
